@@ -1,0 +1,37 @@
+.placeholder {
+  max-width: 720px;
+}
+.placeholder__desc {
+  font-size: var(--text-body);
+  color: var(--ink-secondary);
+  line-height: 1.5;
+  margin-bottom: var(--space-5);
+}
+.placeholder__section {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-subtle);
+}
+.placeholder__label {
+  margin-bottom: var(--space-3);
+}
+.placeholder__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.placeholder__item {
+  display: grid;
+  grid-template-columns: 8px 1fr;
+  gap: var(--space-3);
+  align-items: baseline;
+  font-size: var(--text-body);
+  color: var(--ink-primary);
+}
+.placeholder__bullet {
+  width: 4px;
+  height: 4px;
+  background: var(--accent-500);
+  border-radius: 50%;
+  margin-top: 5px;
+}

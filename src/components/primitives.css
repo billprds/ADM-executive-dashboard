@@ -1,0 +1,123 @@
+/* ============================================================
+   Primitives — shared styles for Panel / StatusDot / TeamBadge /
+   Metric / Eyebrow. Keep these low-visual-weight; components
+   built on top add their own accents.
+============================================================ */
+
+/* ---- Panel ---- */
+.panel {
+  background: var(--surface-2);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+}
+.panel__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.panel__header-left {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  min-width: 0;
+}
+.panel__title {
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--ink-primary);
+  line-height: 1.2;
+}
+.panel__meta {
+  font-size: var(--text-caption);
+  color: var(--ink-tertiary);
+}
+.panel__actions {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+.panel__body {
+  padding: var(--space-5);
+}
+.panel__body--nopad { padding: 0; }
+.panel--dense .panel__header { padding: var(--space-3) var(--space-4); }
+.panel--dense .panel__body { padding: var(--space-4); }
+
+/* ---- Eyebrow ---- */
+.eyebrow {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+.eyebrow__count {
+  font-size: var(--text-caption);
+  color: var(--ink-tertiary);
+}
+
+/* ---- Status dot ---- */
+.status-dot-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1;
+}
+.status-dot {
+  display: inline-block;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.status-dot-label {
+  font-size: var(--text-caption);
+  color: var(--ink-secondary);
+  line-height: 1;
+}
+
+/* ---- Team badge ---- */
+.team-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1;
+  white-space: nowrap;
+}
+.team-badge__swatch {
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.team-badge__label {
+  font-size: var(--text-caption);
+  color: var(--ink-secondary);
+  letter-spacing: 0;
+}
+
+/* ---- Metric ---- */
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.metric__label {
+  /* Already uses .u-label */
+}
+.metric__value {
+  font-size: var(--text-metric);
+  font-weight: var(--weight-semibold);
+  color: var(--ink-primary);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.metric__hint {
+  font-size: var(--text-caption);
+  color: var(--ink-tertiary);
+  line-height: 1;
+}
+.metric--accent .metric__value { color: var(--accent-400); }
+.metric--positive .metric__value { color: var(--status-done); }
+.metric--warning .metric__value { color: var(--status-progress); }
+.metric--critical .metric__value { color: var(--status-risk); }

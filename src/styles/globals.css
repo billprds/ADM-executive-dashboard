@@ -1,0 +1,91 @@
+@import './tokens.css';
+
+/* Reset — pragmatic, not exhaustive. Only what's needed to avoid surprises. */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+  color: var(--ink-primary);
+  background: var(--surface-0);
+  overflow: hidden;
+  /* Tabular figures across the board — critical for a data dashboard */
+  font-feature-settings: 'tnum' 1, 'cv11' 1;
+}
+
+/* Kill button/input default styling */
+button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+button:focus-visible {
+  outline: 2px solid var(--accent-500);
+  outline-offset: 1px;
+}
+
+input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Scrollbar — subtle, dark-mode appropriate */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 5px;
+  border: 2px solid var(--surface-1);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--ink-quaternary); }
+::-webkit-scrollbar-corner { background: transparent; }
+
+/* Utility: uppercase tracked label used throughout */
+.u-label {
+  font-size: var(--text-label);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--ink-tertiary);
+  line-height: var(--leading-tight);
+}
+
+/* Utility: monospace numeric */
+.u-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Selection */
+::selection {
+  background: var(--accent-tint-hover);
+  color: var(--ink-primary);
+}

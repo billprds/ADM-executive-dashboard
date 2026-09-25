@@ -1,0 +1,118 @@
+/* ============================================================
+   Design tokens — the single source of truth for the entire app.
+   Anchored to Angkas blue on a deep navy background.
+   All values here are functional (surfaces, semantic status,
+   spacing scale). Component CSS references these variables and
+   never hardcodes color/size values directly.
+============================================================ */
+
+:root {
+  /* ---------- Surface layers ---------- */
+  /* From deepest (page bg) to highest (raised UI like popovers) */
+  --surface-0: #060a13;         /* App background, behind sidebar */
+  --surface-1: #0b1220;         /* Main content area */
+  --surface-2: #111a2c;         /* Panels, cards */
+  --surface-3: #172236;         /* Table row hover, subtle raise */
+  --surface-4: #1e2a44;         /* Popovers, inputs */
+
+  /* ---------- Borders ---------- */
+  /* 1px flat borders, no drop-shadows in this design system */
+  --border-subtle: #1a2436;     /* Barely-there divider */
+  --border-default: #1e2a44;    /* Standard panel/table borders */
+  --border-strong: #2a3a5c;     /* Emphasized separator */
+
+  /* ---------- Ink (text) ---------- */
+  --ink-primary: #e6edf5;       /* Body text, primary data */
+  --ink-secondary: #a9b4c5;     /* Secondary text, metadata */
+  --ink-tertiary: #6c7a94;      /* Labels, captions, muted */
+  --ink-quaternary: #4a5670;    /* Disabled, placeholders */
+  --ink-inverse: #0b1220;       /* Text on accent backgrounds */
+
+  /* ---------- Angkas blue (primary accent) ---------- */
+  /* Used sparingly: active nav, primary actions, key data points, today marker */
+  --accent-500: #3b82f6;        /* Default */
+  --accent-400: #60a5fa;        /* Hover */
+  --accent-600: #2563eb;        /* Pressed */
+  --accent-tint: rgba(59, 130, 246, 0.10);   /* Subtle background wash */
+  --accent-tint-hover: rgba(59, 130, 246, 0.16);
+
+  /* ---------- Semantic status ---------- */
+  /* Muted, mature — not day-glo. Used for status dots and thin indicators, not big pill fills. */
+  --status-done: #3fb977;       /* Green, done/on-track */
+  --status-progress: #d4a24a;   /* Amber, in-progress */
+  --status-todo: #6c7a94;       /* Gray, not started (same as ink-tertiary intentionally) */
+  --status-risk: #d16060;       /* Red, at-risk/overdue */
+  --status-blocked: #a561d1;    /* Purple, blocked/waiting */
+
+  /* Corresponding tints (10-16% alpha for subtle backgrounds) */
+  --status-done-tint: rgba(63, 185, 119, 0.12);
+  --status-progress-tint: rgba(212, 162, 74, 0.14);
+  --status-todo-tint: rgba(108, 122, 148, 0.14);
+  --status-risk-tint: rgba(209, 96, 96, 0.14);
+  --status-blocked-tint: rgba(165, 97, 209, 0.14);
+
+  /* ---------- Team colors (calm palette, no rainbow) ---------- */
+  /* Each team is a solid, saturated but not garish hue. Used as 4px squares in
+     the legend and as horizontal-bar fills in the Gantt. Tags render as plain
+     text prefixed by a colored square — no rounded pill backgrounds. */
+  --team-txn: #4f8bf0;          /* Blue (Angkas family) */
+  --team-usr-m: #e89347;         /* Orange — USR-M */
+  --team-usr-e: #d97a7a;         /* Coral / light red — USR-E */
+  --team-bao: #d4a24a;          /* Gold */
+  --team-apps: #c973b5;         /* Muted pink */
+  --team-api: #4dbf8f;           /* Green */
+  --team-aiml: #a586d4;          /* Purple */
+  --team-other: #6c7a94;         /* Neutral for unmapped teams */
+
+  /* ---------- Spacing scale ---------- */
+  /* 4px grid. Only these values used throughout the app. */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* ---------- Type scale ---------- */
+  /* Deliberately narrow scale. Add sizes only when there's a genuine hierarchical need. */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --text-label: 11px;           /* Uppercase tracked labels for data categories */
+  --text-caption: 12px;         /* Captions, metadata */
+  --text-body: 13px;            /* Default body text */
+  --text-body-lg: 14px;         /* Section titles, tab labels */
+  --text-metric: 20px;          /* Bold figures for core metrics */
+  --text-title: 18px;           /* Panel titles */
+  --text-page: 20px;            /* Page heading */
+
+  --leading-tight: 1.2;
+  --leading-normal: 1.4;
+  --leading-loose: 1.55;
+
+  --tracking-label: 0.08em;     /* Letter-spacing for uppercase labels */
+  --tracking-normal: 0;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ---------- Radii ---------- */
+  /* Small radii only. This design system uses right angles more than curves. */
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+
+  /* ---------- Layout ---------- */
+  --sidebar-width: 220px;
+  --topbar-height: 52px;
+
+  /* ---------- Transitions ---------- */
+  --transition-fast: 120ms ease;
+  --transition-base: 180ms ease;
+}
