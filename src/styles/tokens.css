@@ -1,0 +1,106 @@
+/* ============================================================
+   Design tokens — LIGHT MODE
+   Inspired by the Freepik blue-accent dashboard reference.
+   White/light-gray backgrounds, blue sidebar, sky-blue accents.
+============================================================ */
+
+:root {
+  /* ---------- Surfaces (light) ---------- */
+  --surface-0: #eef3fa;         /* App background — very light blue-gray */
+  --surface-1: #f5f8fc;         /* Main content area */
+  --surface-2: #ffffff;         /* Panels, cards — pure white */
+  --surface-3: #f0f5fb;         /* Table row hover, subtle fill */
+  --surface-4: #e8f0f9;         /* Inputs, active states */
+
+  /* ---------- Borders ---------- */
+  --border-subtle: #e8eef7;
+  --border-default: #dde5f0;
+  --border-strong: #c5d3e8;
+
+  /* ---------- Ink (text) — dark on light ---------- */
+  --ink-primary: #1a2b45;       /* Near-black with blue tint */
+  --ink-secondary: #3d5478;     /* Medium blue-gray */
+  --ink-tertiary: #6b83a8;      /* Muted label color */
+  --ink-quaternary: #9ab0cc;    /* Disabled / placeholder */
+  --ink-inverse: #ffffff;       /* Text on colored backgrounds */
+
+  /* ---------- Angkas / brand accent ---------- */
+  --accent-500: #1a6fc4;        /* Main Angkas blue — buttons, links, active */
+  --accent-400: #3d8de0;        /* Hover state */
+  --accent-600: #1458a0;        /* Pressed */
+  --accent-tint: rgba(26, 111, 196, 0.08);
+  --accent-tint-hover: rgba(26, 111, 196, 0.14);
+
+  /* ---------- Sidebar (stays deep blue per design) ---------- */
+  --sidebar-bg: #1a67a1;
+  --sidebar-active-bg: rgba(255,255,255,0.15);
+  --sidebar-active-color: #ffffff;
+  --sidebar-text: rgba(255,255,255,0.70);
+  --sidebar-border: rgba(255,255,255,0.08);
+
+  /* ---------- Semantic status ---------- */
+  --status-done: #1e9e6e;
+  --status-progress: #d48c0a;
+  --status-todo: #6b83a8;
+  --status-risk: #d94040;
+  --status-blocked: #9050c8;
+
+  --status-done-tint: rgba(30, 158, 110, 0.10);
+  --status-progress-tint: rgba(212, 140, 10, 0.10);
+  --status-todo-tint: rgba(107, 131, 168, 0.10);
+  --status-risk-tint: rgba(217, 64, 64, 0.10);
+  --status-blocked-tint: rgba(144, 80, 200, 0.10);
+
+  /* ---------- Team colors ---------- */
+  --team-txn:   #1a6fc4;
+  --team-usr-m: #d97020;
+  --team-usr-e: #c84040;
+  --team-bao:   #b8960a;
+  --team-apps:  #a030a0;
+  --team-api:   #1a9060;
+  --team-aiml:  #7040b8;
+  --team-other: #5a7090;
+
+  /* ---------- Spacing ---------- */
+  --space-1: 4px;   --space-2: 8px;   --space-3: 12px;  --space-4: 16px;
+  --space-5: 20px;  --space-6: 24px;  --space-8: 32px;  --space-10: 40px;
+  --space-12: 48px; --space-16: 64px;
+
+  /* ---------- Typography ---------- */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+
+  --text-label: 11px;
+  --text-caption: 12px;
+  --text-body: 13px;
+  --text-body-lg: 14px;
+  --text-metric: 20px;
+  --text-title: 18px;
+  --text-page: 20px;
+
+  --leading-tight: 1.2;
+  --leading-normal: 1.4;
+  --tracking-label: 0.07em;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ---------- Radii ---------- */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+
+  /* ---------- Layout ---------- */
+  --sidebar-width: 220px;
+  --topbar-height: 56px;
+
+  /* ---------- Shadows (light mode uses them tastefully) ---------- */
+  --shadow-sm: 0 1px 3px rgba(26,67,130,0.08), 0 1px 2px rgba(26,67,130,0.04);
+  --shadow-md: 0 4px 12px rgba(26,67,130,0.10), 0 2px 4px rgba(26,67,130,0.06);
+
+  /* ---------- Transitions ---------- */
+  --transition-fast: 120ms ease;
+  --transition-base: 180ms ease;
+}

@@ -1,0 +1,139 @@
+.active-view { display: flex; flex-direction: column; gap: var(--space-5); }
+.active-view__empty {
+  padding: var(--space-8) var(--space-5);
+  text-align: center;
+  color: var(--ink-tertiary);
+  font-size: var(--text-body);
+}
+
+/* ---- Register table ---- */
+.register-table-wrap { overflow-x: auto; }
+.register-table { width: 100%; border-collapse: separate; border-spacing: 0; }
+.register-table thead th {
+  font-size: var(--text-label);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--ink-tertiary);
+  text-align: left;
+  padding: var(--space-3) var(--space-5);
+  background: var(--surface-3);
+  border-bottom: 1px solid var(--border-default);
+  white-space: nowrap;
+}
+.register-table tbody td {
+  padding: 12px var(--space-5);
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: var(--text-body);
+  color: var(--ink-primary);
+  vertical-align: middle;
+}
+.register-table__row { cursor: pointer; transition: background var(--transition-fast); }
+.register-table__row:hover td { background: var(--accent-tint); }
+.register-table__project-name { font-weight: var(--weight-medium); }
+.register-table__number { color: var(--ink-tertiary); font-size: var(--text-caption); }
+.register-table__milestone { color: var(--ink-secondary); font-size: var(--text-caption); }
+
+/* Progress bar (kept in register, no Issues column) */
+.register-table__progress { display: flex; align-items: center; gap: var(--space-2); }
+.register-table__progress-track { flex: 1; height: 6px; background: var(--surface-3); border-radius: 3px; overflow: hidden; }
+.register-table__progress-fill { height: 100%; border-radius: 3px; transition: width var(--transition-base); }
+.register-table__progress-fill.is-done { background: var(--status-done); }
+.register-table__progress-fill.is-active { background: var(--accent-500); }
+.register-table__progress-fill.is-warn { background: var(--status-progress); }
+.register-table__progress-fill.is-critical { background: var(--status-risk); }
+.register-table__progress-fill.is-idle { background: var(--ink-quaternary); }
+.register-table__progress-pct { font-size: var(--text-caption); color: var(--ink-secondary); min-width: 32px; text-align: right; }
+
+.register-table__actions-cell { display: flex; align-items: center; gap: 6px; }
+.row-delete-btn {
+  width: 20px; height: 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; border-radius: var(--radius-sm);
+  color: var(--ink-quaternary);
+  opacity: 0;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+.register-table__row:hover .row-delete-btn { opacity: 1; }
+.row-delete-btn:hover { background: var(--status-risk-tint); color: var(--status-risk); }
+.register-table__chevron { color: var(--ink-quaternary); transition: color var(--transition-fast); }
+.register-table__row:hover .register-table__chevron { color: var(--accent-500); }
+
+/* ---- Add project button ---- */
+.add-btn {
+  padding: 7px 14px;
+  font-size: var(--text-caption);
+  font-weight: var(--weight-semibold);
+  color: var(--ink-inverse);
+  background: var(--accent-500);
+  border: none;
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast), box-shadow var(--transition-fast);
+  cursor: pointer;
+}
+.add-btn:hover { background: var(--accent-400); box-shadow: 0 2px 8px rgba(26,111,196,0.25); }
+.add-btn-inline { color: var(--accent-500); background: none; border: none; cursor: pointer; font-size: var(--text-body); text-decoration: underline; }
+
+/* ---- Modal ---- */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(26,43,69,0.35);
+  backdrop-filter: blur(2px);
+  z-index: 200;
+  display: flex; align-items: center; justify-content: center;
+  padding: var(--space-6);
+}
+.modal {
+  width: min(520px,100%);
+  background: var(--surface-2);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  display: flex; flex-direction: column;
+  animation: modalIn 150ms ease;
+}
+@keyframes modalIn { from { opacity:0; transform:scale(0.97); } to { opacity:1; transform:scale(1); } }
+.modal__header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: var(--space-5) var(--space-6);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.modal__title { font-size: var(--text-title); font-weight: var(--weight-semibold); color: var(--ink-primary); }
+.modal__close { width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; color: var(--ink-tertiary); border-radius: var(--radius-md); font-size: 14px; }
+.modal__close:hover { background: var(--surface-3); color: var(--ink-primary); }
+.modal__body { padding: var(--space-5) var(--space-6); display: flex; flex-direction: column; gap: var(--space-4); }
+.modal__row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+.modal__field { display: flex; flex-direction: column; gap: 6px; }
+.modal__field .u-label { color: var(--ink-secondary); }
+.modal__input {
+  padding: 8px 10px;
+  background: var(--surface-0);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  color: var(--ink-primary);
+  font-size: var(--text-body);
+  font-family: var(--font-sans);
+  transition: border-color var(--transition-fast);
+}
+.modal__input:focus { outline: none; border-color: var(--accent-500); box-shadow: 0 0 0 3px var(--accent-tint); }
+.modal__footer {
+  display: flex; justify-content: flex-end; gap: var(--space-3);
+  padding: var(--space-4) var(--space-6);
+  border-top: 1px solid var(--border-subtle);
+  background: var(--surface-3);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+.modal__cancel {
+  padding: 8px 16px; font-size: var(--text-body); color: var(--ink-secondary);
+  border: 1px solid var(--border-default); border-radius: var(--radius-md);
+  background: var(--surface-2);
+}
+.modal__cancel:hover { color: var(--ink-primary); border-color: var(--border-strong); }
+.modal__submit {
+  padding: 8px 20px; font-size: var(--text-body); font-weight: var(--weight-semibold);
+  color: var(--ink-inverse); background: var(--accent-500);
+  border-radius: var(--radius-md); border: none;
+  transition: background var(--transition-fast);
+}
+.modal__submit:hover:not(:disabled) { background: var(--accent-400); }
+.modal__submit:disabled { opacity: 0.4; cursor: default; }
