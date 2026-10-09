@@ -1,0 +1,4 @@
+.app { display: flex; height: 100vh; width: 100vw; background: var(--surface-0); }
+.app__main { flex: 1; min-width: 0; display: flex; flex-direction: column; background: var(--surface-1); }
+.app__content { flex: 1; overflow-y: auto; padding: var(--space-6); background: var(--surface-0); }
+.app__loading { padding: 80px; text-align: center; color: var(--ink-tertiary); font-size: var(--text-body); }
