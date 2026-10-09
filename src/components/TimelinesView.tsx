@@ -84,13 +84,16 @@ export function TimelinesView({ projects, timeline, setTimeline, onAddActivity, 
 
   const uniqueProjects = useMemo(() => {
     const seen = new Set<string>();
-    const out: { id: string; name: string }[] = [];
+    const out: { id: string; name: string; number: string }[] = [];
     timeline.forEach((t) => {
-      if (!seen.has(t.projectId)) { seen.add(t.projectId); out.push({ id: t.projectId, name: t.projectName }); }
+      if (!seen.has(t.projectId)) {
+        seen.add(t.projectId);
+        const proj = projects.find((p) => p.id === t.projectId);
+        out.push({ id: t.projectId, name: t.projectName, number: proj?.number ?? '' });
+      }
     });
-    // Also include projects with no timeline rows yet
     projects.forEach((p) => {
-      if (!seen.has(p.id)) { out.push({ id: p.id, name: p.name }); }
+      if (!seen.has(p.id)) { out.push({ id: p.id, name: p.name, number: p.number }); }
     });
     return out;
   }, [timeline, projects]);
@@ -108,7 +111,10 @@ export function TimelinesView({ projects, timeline, setTimeline, onAddActivity, 
       if (!by[t.projectId]) { by[t.projectId] = []; order.push(t.projectId); }
       by[t.projectId].push(t);
     });
-    return order.map((id) => ({ id, name: by[id][0].projectName, items: by[id] }));
+    return order.map((id) => {
+      const proj = projects.find((p) => p.id === id);
+      return { id, name: by[id][0].projectName, number: proj?.number ?? '', items: by[id] };
+    });
   }, [filtered]);
 
   const headerBands = useMemo(() => buildHeaderBands(granularity, dayWidth), [granularity, dayWidth]);
@@ -158,7 +164,6 @@ export function TimelinesView({ projects, timeline, setTimeline, onAddActivity, 
         form.due || null,
       );
     } else {
-      // Fallback local-only (mock mode)
       const newAct: TimelineActivity = {
         id: makeId(), projectId: form.projectId,
         projectName: project?.name ?? form.projectId,
@@ -168,6 +173,8 @@ export function TimelinesView({ projects, timeline, setTimeline, onAddActivity, 
       };
       setTimeline && setTimeline([...timeline, newAct]);
     }
+    setForm({ ...EMPTY_FORM });
+    setShowAddModal(false);
   }
 
   /* ---- Drag-to-reorder ---- */
@@ -289,7 +296,7 @@ export function TimelinesView({ projects, timeline, setTimeline, onAddActivity, 
                           if (proj) onOpenProject(proj);
                         }}
                       >{group.name}</span>
-                      <span className="tl-group-number">{group.id}</span>
+                      {group.number && <span className="tl-group-number">{group.number}</span>}
                       <span className="tl-group-count u-label">{group.items.length} items</span>
                     </div>
                     <div className="tl-group-header-time" style={{ width: chartWidth }} />
