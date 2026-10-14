@@ -1,0 +1,1 @@
+ALTER TABLE adm_notes DROP COLUMN IF EXISTS edited_at;

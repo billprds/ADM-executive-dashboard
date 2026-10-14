@@ -1,0 +1,11 @@
+.topbar { height: var(--topbar-height); padding: 0 var(--space-6); background: var(--surface-2); border-bottom: 1px solid var(--border-default); display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); flex-shrink: 0; box-shadow: var(--shadow-sm); }
+.topbar__title { font-size: var(--text-page); font-weight: var(--weight-semibold); color: var(--ink-primary); letter-spacing: -0.01em; }
+.topbar__actions { display: flex; align-items: center; gap: var(--space-3); }
+.topbar__search-btn { display: inline-flex; align-items: center; gap: var(--space-2); padding: 7px 12px; min-width: 180px; background: var(--surface-0); border: 1px solid var(--border-default); border-radius: var(--radius-md); color: var(--ink-tertiary); font-size: var(--text-caption); transition: border-color var(--transition-fast); }
+.topbar__search-btn:hover { border-color: var(--accent-500); }
+.topbar__kbd { font-size: 10px; color: var(--ink-quaternary); padding: 2px 6px; background: var(--surface-3); border: 1px solid var(--border-default); border-radius: 3px; }
+.topbar__icon-btn { width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--border-default); border-radius: var(--radius-md); color: var(--ink-secondary); background: var(--surface-2); transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast); }
+.topbar__icon-btn:hover:not(:disabled) { color: var(--accent-500); border-color: var(--accent-500); background: var(--accent-tint); }
+.topbar__icon-btn:disabled { opacity: 0.5; cursor: default; }
+.is-spinning { animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }

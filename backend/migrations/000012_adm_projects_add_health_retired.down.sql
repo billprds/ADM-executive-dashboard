@@ -1,0 +1,3 @@
+ALTER TABLE adm_projects
+  DROP COLUMN IF EXISTS health,
+  DROP COLUMN IF EXISTS retired;

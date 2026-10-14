@@ -1,0 +1,14 @@
+.panel { background: var(--surface-2); border: 1px solid var(--border-default); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
+.panel__header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding: var(--space-4) var(--space-5); border-bottom: 1px solid var(--border-subtle); }
+.panel__header-left { display: flex; align-items: baseline; gap: var(--space-3); min-width: 0; }
+.panel__title { font-size: var(--text-body-lg); font-weight: var(--weight-semibold); color: var(--ink-primary); }
+.panel__meta { font-size: var(--text-caption); color: var(--ink-tertiary); }
+.panel__actions { display: flex; gap: var(--space-2); align-items: center; }
+.panel__body { padding: var(--space-5); }
+.panel__body--nopad { padding: 0; }
+.panel--dense .panel__header { padding: var(--space-3) var(--space-4); }
+.panel--dense .panel__body { padding: var(--space-4); }
+.status-dot-wrap { display: inline-flex; align-items: center; gap: 6px; line-height: 1; }
+.status-dot-label { font-size: var(--text-caption); color: var(--ink-secondary); }
+.team-badge { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.team-badge__label { font-size: var(--text-caption); color: var(--ink-secondary); }
